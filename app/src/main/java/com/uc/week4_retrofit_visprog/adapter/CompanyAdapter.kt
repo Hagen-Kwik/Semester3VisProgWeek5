@@ -28,6 +28,7 @@ class CompanyAdapter(private val dataSet: List<com.uc.week4_retrofit_visprog.mod
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val img = itemView.img_view_company
+        val tvCompany = itemView.tv_company
     }
 
     // Create new views (invoked by the layout manager)
@@ -39,19 +40,17 @@ class CompanyAdapter(private val dataSet: List<com.uc.week4_retrofit_visprog.mod
         return ViewHolder(view)
     }
 
-    private lateinit var moviesViewModel: MoviesViewModel
-
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
 
-            Glide.with(viewHolder.itemView.context)
-                .load(Const.IMG_URL + dataSet.get(position).logo_path)
-                .into(viewHolder.img)
+        Glide.with(viewHolder.itemView.context)
+            .load(Const.IMG_URL + dataSet.get(position).logo_path)
+            .into(viewHolder.img)
 
-
+        viewHolder.tvCompany.text = dataSet.get(position).name
 
     }
 

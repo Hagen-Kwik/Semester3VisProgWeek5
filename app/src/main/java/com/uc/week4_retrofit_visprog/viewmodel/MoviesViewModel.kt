@@ -5,11 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.uc.week4_retrofit_visprog.model.MovieDetails
+import com.uc.week4_retrofit_visprog.model.*
 import com.uc.week4_retrofit_visprog.repository.NowPlayingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import com.uc.week4_retrofit_visprog.model.Result
 import kotlinx.coroutines.launch
 
 @HiltViewModel
@@ -52,7 +51,4 @@ class MoviesViewModel @Inject constructor(private val repository: NowPlayingRepo
                 }
             }
         }
-
-
-
 }

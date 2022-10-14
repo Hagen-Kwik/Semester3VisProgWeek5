@@ -2,6 +2,7 @@ package com.uc.week4_retrofit_visprog.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.system.Os.remove
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -19,6 +20,7 @@ import com.uc.week4_retrofit_visprog.viewmodel.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_movie_detail.*
+import java.util.EnumSet.range
 
 @AndroidEntryPoint
 class MovieDetail : AppCompatActivity() {
@@ -49,21 +51,24 @@ class MovieDetail : AppCompatActivity() {
 
             //
             rv_language.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-            adapter = LanguageAdapter(response.spoken_languages)
+          adapter = LanguageAdapter(response.spoken_languages)
             rv_language.adapter = adapter
 
             //
             rv_company.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-            Companyadapter = CompanyAdapter(response.production_companies)
+          Companyadapter = CompanyAdapter(response.production_companies)
             rv_company.adapter = Companyadapter
 
             //
             rv_genre.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             GenreAdapter = GenreAdapter(response.genres)
             rv_genre.adapter = GenreAdapter
+
+
+            loading_progress.visibility = View.GONE
+
         })
 
-        loading_progress.visibility = View.GONE
 
 
 
