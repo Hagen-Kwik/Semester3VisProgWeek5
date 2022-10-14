@@ -3,6 +3,7 @@ package com.uc.week4_retrofit_visprog.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.system.Os.remove
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -52,6 +53,7 @@ class MovieDetail : AppCompatActivity() {
             //
             rv_language.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
           adapter = LanguageAdapter(response.spoken_languages)
+            Log.d("here", response.spoken_languages.toString())
             rv_language.adapter = adapter
 
             //
